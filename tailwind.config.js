@@ -24,7 +24,8 @@ export default {
       },
       boxShadow: {
         bar: '0 2px 4px 0 hsl(0, 0%, 88%)',
-        darkBar: '0 2px 6px 0 hsl(188, 18%, 14%)'
+        darkBar: '0 2px 6px 0 hsl(188, 18%, 14%)',
+        components: "0px 0px 8px rgba(0, 0, 0, 0.078)"
       },
       maxWidth: {
         '8xl': '88rem',
