@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
   theme: {
     colors: {
       white: 'hsl(0, 0%, 100%)',
@@ -20,6 +21,13 @@ export default {
       fontFamily: {
         sansBody: 'Arial, sans-serif',
         sansDetail: 'Nunito Sans, sans-serif',
+      },
+      boxShadow: {
+        bar: '0 2px 4px 0 hsl(0, 0%, 88%)',
+        darkBar: '0 2px 6px 0 hsl(188, 18%, 14%)'
+      },
+      maxWidth: {
+        '8xl': '88rem',
       },
     },
   },

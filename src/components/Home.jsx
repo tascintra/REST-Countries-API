@@ -5,10 +5,10 @@ import CountryCard from "@/components/CountryCard";
 
 const Home = () => {
   return (
-    <div>
+    <>
       <FiltersBar />
       <CountryCard />
-    </div>
+    </>
   )
 }
 

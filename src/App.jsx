@@ -8,10 +8,12 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/country/:id" element={<CountryCard />} />
-        </Routes>
+        <main className="max-w-8xl m-auto">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/country/:id" element={<CountryCard />} />
+          </Routes>
+        </main>
       </BrowserRouter>
     </>
   )
