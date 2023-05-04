@@ -1,3 +1,4 @@
+import FilterSelect from "@/components/Filters/FilterSelect";
 import { TextInput } from '@/components/Filters/TextInput'
 import { MagnifyingGlass } from '@phosphor-icons/react'
 
@@ -10,13 +11,7 @@ const FiltersBar = () => {
         </TextInput.Icon>
         <TextInput.Input type="text" placeholder="Search for a country..." />
       </TextInput.Root>
-      <select name="" id="">
-        <option value="">teste 1</option>
-        <option value="">teste 2</option>
-        <option value="">teste 3</option>
-        <option value="">teste 4</option>
-        <option value="">teste 5</option>
-      </select>
+      <FilterSelect />
     </div>
   )
 }

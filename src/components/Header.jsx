@@ -1,22 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Moon } from '@phosphor-icons/react'
+import { ThemeContext } from '@/ThemeContext'
 
 const Header = () => {
-  const [darkTheme, setDarkTheme] = useState(
-    window.localStorage.getItem('theme', 'dark')
-  )
   const [classname, setClassname] = useState('')
-
-  useEffect(() => {
-    darkTheme
-      ? (document.body.classList.add('dark'),
-        window.localStorage.setItem('theme', 'dark'))
-      : (document.body.classList.remove('dark'),
-        window.localStorage.removeItem('theme', 'dark'))
-  }, [darkTheme])
+  const { darkTheme, setDarkTheme } = useContext(ThemeContext)
 
   const handleScroll = () => {
-    window.scrollY >= 100
+    window.scrollY >= 224
       ? setClassname(
           'dark:bg-blue-300/50 backdrop-blur-md bg-white/50 backdrop-blur-md'
         )
