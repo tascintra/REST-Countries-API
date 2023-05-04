@@ -1,9 +1,15 @@
-import React from 'react'
+import { TextInput } from '@/components/Filters/TextInput'
+import { MagnifyingGlass } from '@phosphor-icons/react'
 
 const FiltersBar = () => {
   return (
-    <div className="h-36 px-16 flex items-center justify-between">
-      <input className="shadow-components bg-white dark:bg-blue-300 transition-all duration-500" style={{height: "56px", borderRadius: "4px", width: "480px", padding: "8px"}} type="text" />
+    <div className="h-36 px-16 flex items-center gap-5 justify-between">
+      <TextInput.Root>
+        <TextInput.Icon>
+          <MagnifyingGlass weight="bold" />
+        </TextInput.Icon>
+        <TextInput.Input type="text" placeholder="Search for a country..." />
+      </TextInput.Root>
       <select name="" id="">
         <option value="">teste 1</option>
         <option value="">teste 2</option>
