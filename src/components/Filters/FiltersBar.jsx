@@ -4,7 +4,7 @@ import { MagnifyingGlass } from '@phosphor-icons/react'
 
 const FiltersBar = () => {
   return (
-    <div className="h-36 px-16 py-40 flex items-center gap-5 justify-between">
+    <section className="h-36 pt-40 pb-20 flex items-center gap-5 justify-between">
       <TextInput.Root>
         <TextInput.Icon>
           <MagnifyingGlass weight="bold" />
@@ -12,7 +12,7 @@ const FiltersBar = () => {
         <TextInput.Input type="text" placeholder="Search for a country..." />
       </TextInput.Root>
       <FilterSelect />
-    </div>
+    </section>
   )
 }
 

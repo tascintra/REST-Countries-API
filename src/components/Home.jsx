@@ -1,12 +1,12 @@
 import React from 'react'
-import FiltersBar from '@/components/FiltersBar'
-import CountryCard from "@/components/CountryCard";
+import FiltersBar from '@/components/Filters/FiltersBar'
+import CountriesContainer from "@/components/Countries/CountriesContainer";
 
 const Home = () => {
   return (
     <>
       <FiltersBar />
-      <CountryCard />
+      <CountriesContainer />
     </>
   )
 }
