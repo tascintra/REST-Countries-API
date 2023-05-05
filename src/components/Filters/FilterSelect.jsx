@@ -23,10 +23,6 @@ const options = [
     value: 'oceania',
     label: 'Oceania',
   },
-  {
-    value: 'all',
-    label: 'All',
-  },
 ]
 
 const FilterSelect = () => {
@@ -37,11 +33,13 @@ const FilterSelect = () => {
       ...base,
       border: state.isFocused ? 'none' : 'none',
       boxShadow: state.isFocused
-        ? '0px 0px 16px #00000013'
-        : '0px 0px 8px #00000013',
+        ? darkTheme
+          ? '0px 0px 16px #00000056'
+          : '0px 0px 16px #00000024'
+        : '0px 0px 8px #00000014',
       padding: '10px 6px 10px 14px',
       borderRadius: '6px',
-      transition: 'all 500ms',
+      transition: 'all 500ms cubic-bezier(0.4, 0, 0.2, 1)',
       width: '12.5rem',
       backgroundColor: darkTheme ? '#2b3945' : '#fff',
     }),
@@ -128,6 +126,7 @@ const FilterSelect = () => {
         IndicatorSeparator: () => null,
       }}
       isSearchable={false}
+      isClearable={true}
     />
   )
 }

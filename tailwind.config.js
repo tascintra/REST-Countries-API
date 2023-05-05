@@ -24,8 +24,8 @@ export default {
         sansb: 'Nunito Sans, sans-serif',
       },
       boxShadow: {
-        bar: '0 2px 4px 0 #e0e0e0',
-        darkBar: '0 2px 6px 0 #1d282a',
+        bar: '0 2px 4px 0 #00000014',
+        darkBar: '0 2px 6px 0 #00000032',
         components: '0px 0px 8px #00000014',
         selected: '0px 0px 16px #00000024',
         darkSelected: '0px 0px 16px #00000056',

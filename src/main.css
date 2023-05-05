@@ -1,3 +1,37 @@
 @tailwind base;
+
+:root {
+  --light1: #f1f1f1;
+  --light2: #c1c1c1;
+  --dark1: #7a8085;
+  --dark2: #3b4248;
+  --primary: var(--light1);
+  --secondary: var(--light2);
+}
+
+/* Scrollbar styles */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--secondary);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 1rem;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--primary);
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius: 1.25rem;
+  border: 0.25rem solid var(--primary);
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 @tailwind components;
 @tailwind utilities;
