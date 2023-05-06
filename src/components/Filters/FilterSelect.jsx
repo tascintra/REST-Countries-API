@@ -28,41 +28,67 @@ const options = [
 const FilterSelect = () => {
   const { darkTheme } = useContext(ThemeContext)
 
+  const lightPrim = getComputedStyle(document.documentElement).getPropertyValue(
+    '--gray-200'
+  )
+  const lightSec = '#f2f2f2'
+  const lightTer = '#858585'
+
+  const darkPrim = getComputedStyle(document.documentElement).getPropertyValue(
+    '--blue-100'
+  )
+  const darkSec = '#2b3945'
+  const darkTer = '#4a5864'
+
+  const shadowComponents = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue('--shadow-components')
+  const shadowSelected = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue('--shadow-selected')
+  const shadowDarkSelected = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue('--shadow-dark-selected')
+
   const style = {
     control: (base, state) => ({
       ...base,
+      fontSize: '0.875rem',
       border: state.isFocused ? 'none' : 'none',
       boxShadow: state.isFocused
         ? darkTheme
-          ? '0px 0px 16px #00000056'
-          : '0px 0px 16px #00000024'
-        : '0px 0px 8px #00000014',
+          ? `${shadowDarkSelected}`
+          : `${shadowSelected}`
+        : `${shadowComponents}`,
       padding: '10px 6px 10px 14px',
       borderRadius: '6px',
       transition: 'all 500ms cubic-bezier(0.4, 0, 0.2, 1)',
       width: '12.5rem',
-      backgroundColor: darkTheme ? '#2b3945' : '#fff',
+      backgroundColor: darkTheme ? `${darkSec}` : '#fff',
+      '&:hover': {
+        boxShadow: darkTheme ? `${shadowDarkSelected}` : `${shadowSelected}`,
+      },
     }),
     placeholder: (styles) => ({
       ...styles,
-      color: darkTheme ? '#fafafa' : '#111517',
+      color: darkTheme ? `${lightPrim}` : `${darkPrim}`,
     }),
     dropdownIndicator: (styles) => ({
       ...styles,
-      color: darkTheme ? '#fafafa' : '#111517',
+      color: darkTheme ? `${lightPrim}` : `${darkPrim}`,
       '&:hover': {
-        color: darkTheme ? '#fafafa' : '#111517',
+        color: darkTheme ? `${lightPrim}` : `${darkPrim}`,
       },
     }),
     menu: (styles) => {
       return {
         ...styles,
-        backgroundColor: darkTheme ? '#2b3945' : '#fff',
-        boxShadow: '0px 0px 8px #00000013',
+        backgroundColor: darkTheme ? `${darkSec}` : '#fff',
+        boxShadow: `${shadowComponents}`,
         border: 'none',
         borderRadius: '6px',
         top: '60px',
-        color: darkTheme ? '#fafafa' : '#111517',
+        color: darkTheme ? `${lightPrim}` : `${darkPrim}`,
       }
     },
     option: (styles, { isDisabled, isFocused, isSelected }) => {
@@ -73,7 +99,7 @@ const FilterSelect = () => {
           : isSelected
           ? darkTheme
             ? '#1b272d'
-            : '#858585'
+            : `${lightTer}`
           : isFocused
           ? undefined
           : undefined,
@@ -83,12 +109,12 @@ const FilterSelect = () => {
             ? undefined
             : isSelected
             ? darkTheme
-              ? '#111517'
-              : '#858585'
+              ? `${darkPrim}`
+              : `${lightTer}`
             : isFocused
             ? darkTheme
-              ? '#4a5864'
-              : '#f2f2f2'
+              ? `${darkTer}`
+              : `${lightSec}`
             : undefined,
         },
 
@@ -97,13 +123,13 @@ const FilterSelect = () => {
           backgroundColor: !isDisabled
             ? isSelected
               ? darkTheme
-                ? '#4a5864'
-                : '#f2f2f2'
+                ? `${darkTer}`
+                : `${lightSec}`
               : darkTheme
-              ? '#111517'
+              ? `${darkPrim}`
               : '#525252'
             : undefined,
-          color: darkTheme ? '#fff' : '#f2f2f2',
+          color: darkTheme ? '#fff' : `${lightSec}`,
         },
         paddingLeft: '24px',
       }
@@ -111,9 +137,10 @@ const FilterSelect = () => {
     singleValue: (styles) => {
       return {
         ...styles,
-        color: darkTheme ? '#fafafa' : '#111517',
+        color: darkTheme ? `${lightPrim}` : `${darkPrim}`,
       }
     },
+    
   }
 
   return (

@@ -4,19 +4,19 @@ export default {
   darkMode: 'class',
   theme: {
     colors: {
-      white: '#fff',
-      black: '#000',
+      white: 'var(--white)',
+      black: 'var(--black)',
       transparent: 'transparent',
 
       blue: {
-        100: '#111517',
-        200: '#202c37',
-        300: '#2b3945',
+        100: 'var(--blue-100)',
+        200: 'var(--blue-200)',
+        300: 'var(--blue-300)',
       },
 
       gray: {
-        100: '#858585',
-        200: '#fafafa',
+        100: 'var(--gray-100)',
+        200: 'var(--gray-200)',
       },
     },
     extend: {
@@ -24,11 +24,11 @@ export default {
         sansb: 'Nunito Sans, sans-serif',
       },
       boxShadow: {
-        bar: '0 2px 4px 0 #00000014',
-        darkBar: '0 2px 6px 0 #00000032',
-        components: '0px 0px 8px #00000014',
-        selected: '0px 0px 16px #00000024',
-        darkSelected: '0px 0px 16px #00000056',
+        bar: 'var(--shadow-bar)',
+        darkBar: 'var(--shadow-dark-bar)',
+        components: 'var(--shadow-components)',
+        selected: 'var(--shadow-selected)',
+        darkSelected: 'var(--shadow-dark-selected)',
       },
       maxWidth: {
         smd: '30rem',

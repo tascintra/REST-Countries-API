@@ -8,25 +8,31 @@ export const DarkTheme = ({ children }) => {
   )
 
   useEffect(() => {
-    console.log(document.documentElement)
-
     darkTheme
       ? (document.body.classList.add('dark'),
         window.localStorage.setItem('theme', 'dark'),
-        document.documentElement.style.setProperty('--primary', 'var(--dark1)'),
+        document.documentElement.style.setProperty('--primary', 'var(--dark-primary)'),
         document.documentElement.style.setProperty(
           '--secondary',
-          'var(--dark2)'
+          'var(--dark-secondary)'
+        ),
+        document.documentElement.style.setProperty(
+          '--hover',
+          'var(--hover-dark)'
         ))
       : (document.body.classList.remove('dark'),
         window.localStorage.removeItem('theme', 'dark'),
         document.documentElement.style.setProperty(
           '--primary',
-          'var(--light1)'
+          'var(--light-primary)'
         ),
         document.documentElement.style.setProperty(
           '--secondary',
-          'var(--light2)'
+          'var(--light-secondary)'
+        ),
+        document.documentElement.style.setProperty(
+          '--hover',
+          'var(--hover-light)'
         ))
   }, [darkTheme])
 
