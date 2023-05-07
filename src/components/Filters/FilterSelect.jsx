@@ -87,8 +87,11 @@ const FilterSelect = () => {
         boxShadow: `${shadowComponents}`,
         border: 'none',
         borderRadius: '6px',
-        top: '60px',
+        top: '52px',
         color: darkTheme ? `${lightPrim}` : `${darkPrim}`,
+        boxShadow: darkTheme
+          ? `${shadowDarkSelected}`
+          : `${shadowSelected}`,
       }
     },
     option: (styles, { isDisabled, isFocused, isSelected }) => {

@@ -4,7 +4,7 @@ const CountryCard = ({flag, alt, country, population, region, capital, empty}) =
   
 
   return empty ? <div className="hidden lg:block lg:w-66 lg:h-84"></div> : (
-    <div className="w-66 h-84 bg-white dark:bg-blue-300 dark:text-white rounded shadow-components overflow-hidden transition-all duration-500">
+    <div className="w-66 h-84 bg-white dark:bg-blue-300 dark:text-white rounded shadow-components overflow-hidden">
       <img
         src={flag}
         className="h-40 w-full object-cover"
