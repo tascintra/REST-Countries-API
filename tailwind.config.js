@@ -34,6 +34,12 @@ export default {
         smd: '30rem',
         '8xl': '88rem',
       },
+      width: {
+        66: '16.5rem',
+      },
+      height: {
+        84: '21rem',
+      },
     },
   },
   plugins: [],
