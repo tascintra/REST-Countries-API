@@ -34,6 +34,8 @@ export default {
         darkSelected: 'var(--shadow-dark-selected)',
       },
       maxWidth: {
+        sxs: '12.5rem',
+        mxs: '15.5rem',
         smd: '30rem',
         '8xl': '88rem',
       },

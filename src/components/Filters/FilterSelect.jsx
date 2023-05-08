@@ -63,7 +63,6 @@ const FilterSelect = () => {
       padding: '10px 6px 10px 14px',
       borderRadius: '6px',
       transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
-      width: '12.5rem',
       backgroundColor: darkTheme ? `${darkSec}` : '#fff',
       '&:hover': {
         boxShadow: darkTheme ? `${shadowDarkSelected}` : `${shadowSelected}`,
@@ -147,17 +146,19 @@ const FilterSelect = () => {
   }
 
   return (
-    <Select
-      instanceId="regions"
-      placeholder="Filter by Region"
-      options={options}
-      styles={style}
-      components={{
-        IndicatorSeparator: () => null,
-      }}
-      isSearchable={false}
-      isClearable={true}
-    />
+    <div className="w-full max-w-mxs md:max-w-sxs">
+      <Select
+        instanceId="regions"
+        placeholder="Filter by Region"
+        options={options}
+        styles={style}
+        components={{
+          IndicatorSeparator: () => null,
+        }}
+        isSearchable={false}
+        isClearable={true}
+      />
+    </div>
   )
 }
 
