@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const CountryCard = ({
   flag,
@@ -12,7 +13,10 @@ const CountryCard = ({
   return empty ? (
     <div className="hidden lg:block lg:w-66 lg:h-84"></div>
   ) : (
-    <div className="w-82 sm:w-66 h-104 sm:h-84 bg-white dark:bg-blue-300 dark:text-white rounded shadow-components overflow-hidden">
+    <Link
+      to={`/country/${country}`}
+      className="w-82 sm:w-66 h-104 sm:h-84 bg-white dark:bg-blue-300 dark:text-white rounded shadow-components overflow-hidden ring-white dark:ring-blue-300 hover:ring-1 hover:shadow-selected dark:hover:shadow-darkSelected hover:brightness-95 dark:hover:brightness-110 transition-[filter, shadow]"
+    >
       <img
         src={flag}
         className="h-52 sm:h-40 w-full object-cover shadow-components"
@@ -33,7 +37,7 @@ const CountryCard = ({
           {capital}
         </p>
       </div>
-    </div>
+    </Link>
   )
 }
 
