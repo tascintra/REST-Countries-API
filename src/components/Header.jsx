@@ -19,11 +19,11 @@ const Header = () => {
     <header
       className={`shadow-bar dark:shadow-darkBar ${classname} text-blue-100 dark:text-white backdrop-blur-md transition-all duration-300 fixed w-full z-50`}
     >
-      <div className="max-w-8xl h-20 m-auto px-16 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Where in the world?</h1>
+      <div className="max-w-8xl h-24 sm:h-20 m-auto px-5 md:px-16 flex items-center justify-between">
+        <h1 className="text-base sm:text-2xl font-bold">Where in the world?</h1>
         <button
           onClick={() => setDarkTheme(!darkTheme)}
-          className="flex items-center gap-2 font-semibold text-md"
+          className="flex items-center gap-2 font-semibold text-body sm:text-base"
         >
           <Moon weight={darkTheme ? 'fill' : 'bold'} /> Dark Mode
         </button>

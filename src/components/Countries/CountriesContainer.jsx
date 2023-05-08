@@ -16,7 +16,7 @@ const CountriesContainer = () => {
   }, [data])
 
   return (
-    <section className="flex flex-wrap justify-between gap-12 lg:gap-y-16">
+    <section className="flex flex-wrap justify-center md:justify-between gap-12 lg:gap-y-16">
       {data &&
         countries.length &&
         countries.map((country) => (

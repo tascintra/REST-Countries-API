@@ -41,9 +41,11 @@ export default {
       },
       width: {
         66: '16.5rem',
+        82: '20.5rem',
       },
       height: {
         84: '21rem',
+        104: '26rem',
       },
     },
   },
