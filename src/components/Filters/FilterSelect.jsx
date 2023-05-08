@@ -62,7 +62,7 @@ const FilterSelect = () => {
         : `${shadowComponents}`,
       padding: '10px 6px 10px 14px',
       borderRadius: '6px',
-      transition: 'all 500ms cubic-bezier(0.4, 0, 0.2, 1)',
+      transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
       width: '12.5rem',
       backgroundColor: darkTheme ? `${darkSec}` : '#fff',
       '&:hover': {

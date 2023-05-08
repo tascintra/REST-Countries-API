@@ -23,6 +23,9 @@ export default {
       fontFamily: {
         sansb: 'Nunito Sans, sans-serif',
       },
+      fontSize: {
+        body: '0.875rem',
+      },
       boxShadow: {
         bar: 'var(--shadow-bar)',
         darkBar: 'var(--shadow-dark-bar)',

@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <header
-      className={`shadow-bar dark:shadow-darkBar ${classname} text-blue-100 dark:text-white backdrop-blur-md transition-all duration-500 fixed w-full z-50`}
+      className={`shadow-bar dark:shadow-darkBar ${classname} text-blue-100 dark:text-white backdrop-blur-md transition-all duration-300 fixed w-full z-50`}
     >
       <div className="max-w-8xl h-20 m-auto px-16 flex items-center justify-between">
         <h1 className="text-2xl font-bold">Where in the world?</h1>
