@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Ink from 'react-ink'
 
 const CountryCard = ({
   flag,
@@ -15,8 +16,9 @@ const CountryCard = ({
   ) : (
     <Link
       to={`/country/${country}`}
-      className="w-82 sm:w-66 h-104 sm:h-84 bg-white dark:bg-blue-300 dark:text-white rounded shadow-components overflow-hidden ring-white dark:ring-blue-300 hover:ring-1 hover:shadow-selected dark:hover:shadow-darkSelected hover:brightness-95 dark:hover:brightness-110 transition-[filter, shadow]"
+      className="w-82 sm:w-66 h-104 sm:h-84 bg-white dark:bg-blue-300 dark:text-white rounded shadow-components overflow-hidden ring-white dark:ring-blue-300 hover:ring-1 hover:shadow-selected dark:hover:shadow-darkSelected hover:brightness-95 dark:hover:brightness-110 transition-[filter, shadow] relative"
     >
+      <Ink recenter={false} duration={800} radius={348} opacity={0.15} />
       <img
         src={flag}
         className="h-52 sm:h-40 w-full object-cover shadow-components"
