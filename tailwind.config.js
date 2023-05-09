@@ -11,11 +11,14 @@ export default {
       blue: {
         100: 'var(--blue-100)',
         200: 'var(--blue-200)',
+        220: 'var(--blue-220)',
         300: 'var(--blue-300)',
       },
 
       gray: {
         100: 'var(--gray-100)',
+        140: 'var(--gray-140)',
+        160: 'var(--gray-160)',
         200: 'var(--gray-200)',
       },
     },
