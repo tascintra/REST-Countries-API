@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import useAxios from '@/hooks/useAxios'
 import { GET_COUNTRIES } from '@/services/api'
 import CountryCard from '@/components/Countries/CountryCard'
-import Skeleton from '@/components/Helper/CardSkeleton'
+import CardSkeleton from '@/components/Helper/CardSkeleton'
+import Error from '@/components/Helper/Error'
 
 const CountriesContainer = () => {
   const [countries, setCountries] = useState([])
@@ -19,8 +20,11 @@ const CountriesContainer = () => {
   }, [data])
 
   return (
-    <section className="flex flex-wrap justify-center md:justify-between gap-12 lg:gap-y-16">
-      {loading && skeleton.map((item) => <Skeleton key={item} />)}
+    <section
+      className={`flex flex-wrap justify-center md:justify-between gap-12 lg:gap-y-16`}
+    >
+      {error && <Error error={error.response.data.message} />}
+      {loading && skeleton.map((item) => <CardSkeleton key={item} />)}
       {data &&
         countries.length &&
         countries.map((country) => (

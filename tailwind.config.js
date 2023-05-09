@@ -3,26 +3,26 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
-    colors: {
-      white: 'var(--white)',
-      black: 'var(--black)',
-      transparent: 'transparent',
-
-      blue: {
-        100: 'var(--blue-100)',
-        200: 'var(--blue-200)',
-        220: 'var(--blue-220)',
-        300: 'var(--blue-300)',
-      },
-
-      gray: {
-        100: 'var(--gray-100)',
-        140: 'var(--gray-140)',
-        160: 'var(--gray-160)',
-        200: 'var(--gray-200)',
-      },
-    },
     extend: {
+      colors: {
+        white: 'var(--white)',
+        black: 'var(--black)',
+        transparent: 'transparent',
+
+        blue: {
+          100: 'var(--blue-100)',
+          200: 'var(--blue-200)',
+          220: 'var(--blue-220)',
+          300: 'var(--blue-300)',
+        },
+
+        gray: {
+          100: 'var(--gray-100)',
+          140: 'var(--gray-140)',
+          160: 'var(--gray-160)',
+          200: 'var(--gray-200)',
+        },
+      },
       fontFamily: {
         sansb: 'Nunito Sans, sans-serif',
       },
