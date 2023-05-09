@@ -68,6 +68,13 @@ const FilterSelect = () => {
         boxShadow: darkTheme ? `${shadowDarkSelected}` : `${shadowSelected}`,
       },
     }),
+    clearIndicator: (base, state) => ({
+      ...base,
+      color: darkTheme && (state.isSelected ? '#fff' : '#fff'),
+      '&:hover': {
+        color: darkTheme ? (state.isSelected ? '#8799a8' : '#8799a8') : `${lightTer}`,
+      },
+    }),
     placeholder: (styles) => ({
       ...styles,
       color: darkTheme ? `${lightPrim}` : `${darkPrim}`,
@@ -88,9 +95,7 @@ const FilterSelect = () => {
         borderRadius: '6px',
         top: '52px',
         color: darkTheme ? `${lightPrim}` : `${darkPrim}`,
-        boxShadow: darkTheme
-          ? `${shadowDarkSelected}`
-          : `${shadowSelected}`,
+        boxShadow: darkTheme ? `${shadowDarkSelected}` : `${shadowSelected}`,
       }
     },
     option: (styles, { isDisabled, isFocused, isSelected }) => {
@@ -142,7 +147,6 @@ const FilterSelect = () => {
         color: darkTheme ? `${lightPrim}` : `${darkPrim}`,
       }
     },
-    
   }
 
   return (
