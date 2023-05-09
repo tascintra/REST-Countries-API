@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <DarkTheme>
           <Header />
-          <main className="max-w-8xl px-5 md:px-16 m-auto pb-16">
+          <main className="max-w-8xl min-h-screen px-5 md:px-16 m-auto pb-16">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/country/:id" element={<CountryDetails />} />

@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react'
 import useAxios from '@/hooks/useAxios'
 import { GET_COUNTRIES } from '@/services/api'
 import CountryCard from '@/components/Countries/CountryCard'
+import Skeleton from '@/components/Helper/CardSkeleton'
 
 const CountriesContainer = () => {
   const [countries, setCountries] = useState([])
-  const { data, requestData } = useAxios()
+  const [skeleton, setSkeleton] = useState([''])
+  const { data, loading, error, requestData } = useAxios()
 
   useEffect(() => {
+    setSkeleton([...Array(20).keys()].map((i) => i + 1))
     requestData(GET_COUNTRIES)
   }, [requestData])
 
@@ -17,6 +20,7 @@ const CountriesContainer = () => {
 
   return (
     <section className="flex flex-wrap justify-center md:justify-between gap-12 lg:gap-y-16">
+      {loading && skeleton.map((item) => <Skeleton key={item} />)}
       {data &&
         countries.length &&
         countries.map((country) => (
