@@ -1,23 +1,16 @@
 import { useEffect, useState } from 'react'
-import useAxios from '@/hooks/useAxios'
-import { GET_COUNTRIES } from '@/services/api'
 import CountryCard from '@/components/Countries/CountryCard'
 import CardSkeleton from '@/components/Helper/CardSkeleton'
 import Error from '@/components/Helper/Error'
 
-const CountriesContainer = () => {
-  const [countries, setCountries] = useState([])
-  const [skeleton, setSkeleton] = useState([''])
-  const { data, loading, error, requestData } = useAxios()
+const CountriesContainer = ({ data, loading, error, skeleton, countries }) => {
+  const [brokenList, setBrokenList] = useState(0)
 
   useEffect(() => {
-    setSkeleton([...Array(20).keys()].map((i) => i + 1))
-    requestData(GET_COUNTRIES)
-  }, [requestData])
-
-  useEffect(() => {
-    data && setCountries(data)
-  }, [data])
+    countries.length % 4 === 2
+      ? setBrokenList(2)
+      : setBrokenList(3)
+  }, [countries])
 
   return (
     <section
@@ -26,7 +19,6 @@ const CountriesContainer = () => {
       {error && <Error error={error.response.data.message} />}
       {loading && skeleton.map((item) => <CardSkeleton key={item} />)}
       {data &&
-        countries.length &&
         countries.map((country) => (
           <CountryCard
             key={country.name.common}
@@ -38,13 +30,13 @@ const CountriesContainer = () => {
             capital={country.capital} // solve more than one capital
           />
         ))}
-      {countries.length % 4 === 2 && (
+      {brokenList === 2 && (
         <>
           <CountryCard empty={true} />
           <CountryCard empty={true} />
         </>
       )}
-      {countries.length % 4 === 3 && <CountryCard empty={true} />}
+      {brokenList === 3 && <CountryCard empty={true} />}
     </section>
   )
 }
