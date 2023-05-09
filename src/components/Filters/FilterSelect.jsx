@@ -25,7 +25,7 @@ const options = [
   },
 ]
 
-const FilterSelect = () => {
+const FilterSelect = ({ filterRegions }) => {
   const { darkTheme } = useContext(ThemeContext)
 
   const lightPrim = getComputedStyle(document.documentElement).getPropertyValue(
@@ -72,7 +72,11 @@ const FilterSelect = () => {
       ...base,
       color: darkTheme && (state.isSelected ? '#fff' : '#fff'),
       '&:hover': {
-        color: darkTheme ? (state.isSelected ? '#8799a8' : '#8799a8') : `${lightTer}`,
+        color: darkTheme
+          ? state.isSelected
+            ? '#8799a8'
+            : '#8799a8'
+          : `${lightTer}`,
       },
     }),
     placeholder: (styles) => ({
@@ -160,7 +164,8 @@ const FilterSelect = () => {
           IndicatorSeparator: () => null,
         }}
         isSearchable={false}
-        isClearable={true}
+        isClearable
+        onChange={(e) => filterRegions(e?.value)}
       />
     </div>
   )

@@ -2,7 +2,7 @@ import { MagnifyingGlass } from '@phosphor-icons/react'
 import FilterSelect from '@/components/Filters/FilterSelect'
 import { TextInput } from '@/components/Filters/TextInput'
 
-const FiltersBar = ({ countriesFilter }) => {
+const FiltersBar = ({ countriesFilter, filterRegions }) => {
   return (
     <section className="h-36 pt-32 md:pt-40 pb-52 md:pb-20 flex flex-wrap md:flex-nowrap items-center gap-12 md:gap-5 justify-between">
       <TextInput.Root>
@@ -15,7 +15,7 @@ const FiltersBar = ({ countriesFilter }) => {
           placeholder="Search for a country..."
         />
       </TextInput.Root>
-      <FilterSelect />
+      <FilterSelect filterRegions={filterRegions} />
     </section>
   )
 }

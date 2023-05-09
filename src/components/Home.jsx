@@ -25,9 +25,21 @@ const Home = () => {
     name ? setCountries(filteredCountries) : data && setCountries(data)
   }
 
+  const filterRegions = (region) => {
+    const filteredRegion =
+      region &&
+      countries.filter((country) => {
+        return country.region.toLowerCase().includes(region.toLowerCase())
+      })
+    region ? setCountries(filteredRegion) : data && setCountries(data)
+  }
+
   return (
     <>
-      <FiltersBar countriesFilter={countriesFilter} />
+      <FiltersBar
+        countriesFilter={countriesFilter}
+        filterRegions={filterRegions}
+      />
       <CountriesContainer
         data={data}
         loading={loading}
