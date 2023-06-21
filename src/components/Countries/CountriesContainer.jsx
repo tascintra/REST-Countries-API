@@ -4,7 +4,14 @@ import CountryCard from "@/components/Countries/CountryCard"
 import CardSkeleton from "@/components/Helper/CardSkeleton"
 import Error from "@/components/Helper/Error"
 
-const CountriesContainer = ({ data, loading, error, skeleton, countries }) => {
+const CountriesContainer = ({
+  data,
+  loading,
+  error,
+  skeleton,
+  countries,
+  search,
+}) => {
   const [brokenList, setBrokenList] = useState(0)
 
   useEffect(() => {
@@ -18,7 +25,7 @@ const CountriesContainer = ({ data, loading, error, skeleton, countries }) => {
       {error && <Error error={error.response.data.message} />}
       {loading && skeleton.map((item) => <CardSkeleton key={item} />)}
       {data &&
-        countries.map((country) => (
+        search(countries).map((country) => (
           <CountryCard
             key={country.name.common}
             flag={country.flags.png}
@@ -46,6 +53,7 @@ CountriesContainer.propTypes = {
   error: PropTypes.object,
   skeleton: PropTypes.array,
   countries: PropTypes.array,
+  search: PropTypes.func,
 }
 
 export default CountriesContainer

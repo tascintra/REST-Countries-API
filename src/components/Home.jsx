@@ -6,6 +6,7 @@ import CountriesContainer from "@/components/Countries/CountriesContainer"
 
 const Home = () => {
   const [countries, setCountries] = useState([])
+  const [query, setQuery] = useState("")
   const [skeleton, setSkeleton] = useState([""])
   const { data, loading, error, requestData } = useAxios()
 
@@ -18,11 +19,10 @@ const Home = () => {
     data && setCountries(data)
   }, [data])
 
-  const countriesFilter = (name) => {
-    const filteredCountries = countries.filter((country) => {
-      return country.name.common.toLowerCase().includes(name.toLowerCase())
-    })
-    name ? setCountries(filteredCountries) : data && setCountries(data)
+  function search(countries) {
+    return countries.filter((country) =>
+      country.name.common.toString().toLowerCase().includes(query)
+    )
   }
 
   const filterRegions = (region) => {
@@ -36,11 +36,9 @@ const Home = () => {
 
   return (
     <>
-      <FiltersBar
-        countriesFilter={countriesFilter}
-        filterRegions={filterRegions}
-      />
+      <FiltersBar query={setQuery} filterRegions={filterRegions} />
       <CountriesContainer
+        search={search}
         data={data}
         loading={loading}
         error={error}
