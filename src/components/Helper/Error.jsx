@@ -1,7 +1,11 @@
-import React from 'react'
+import PropTypes from "prop-types"
 
 const Error = ({ error }) => {
-  return <h1 className="text-red-500 text-3xl font-semibold m-auto">{error}</h1>
+  return <h1 className="m-auto text-3xl font-semibold text-red-500">{error}</h1>
+}
+
+Error.propTypes = {
+  error: PropTypes.string.isRequired,
 }
 
 export default Error

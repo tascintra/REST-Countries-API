@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react'
-import useAxios from '@/hooks/useAxios'
-import { GET_COUNTRIES } from '@/services/api'
-import FiltersBar from '@/components/Filters/FiltersBar'
-import CountriesContainer from '@/components/Countries/CountriesContainer'
+import { useEffect, useState } from "react"
+import useAxios from "@/hooks/useAxios"
+import { GET_COUNTRIES } from "@/services/api"
+import FiltersBar from "@/components/Filters/FiltersBar"
+import CountriesContainer from "@/components/Countries/CountriesContainer"
 
 const Home = () => {
   const [countries, setCountries] = useState([])
-  const [skeleton, setSkeleton] = useState([''])
+  const [skeleton, setSkeleton] = useState([""])
   const { data, loading, error, requestData } = useAxios()
 
   useEffect(() => {

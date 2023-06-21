@@ -1,8 +1,8 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { DarkTheme } from '@/ThemeContext'
-import Home from '@/components/Home'
-import Header from '@/components/Header'
-import CountryDetails from '@/components/Countries/CountryDetails'
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { DarkTheme } from "@/ThemeContext"
+import Home from "@/components/Home"
+import Header from "@/components/Header"
+import CountryDetails from "@/components/Countries/CountryDetails"
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <DarkTheme>
           <Header />
-          <main className="max-w-8xl min-h-screen px-5 md:px-16 m-auto pb-16">
+          <main className="m-auto min-h-screen max-w-8xl px-5 pb-16 md:px-16">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/country/:id" element={<CountryDetails />} />

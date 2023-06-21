@@ -1,10 +1,11 @@
-import { MagnifyingGlass } from '@phosphor-icons/react'
-import FilterSelect from '@/components/Filters/FilterSelect'
-import { TextInput } from '@/components/Filters/TextInput'
+import PropTypes from "prop-types"
+import { MagnifyingGlass } from "@phosphor-icons/react"
+import FilterSelect from "@/components/Filters/FilterSelect"
+import { TextInput } from "@/components/Filters/TextInput"
 
 const FiltersBar = ({ countriesFilter, filterRegions }) => {
   return (
-    <section className="h-36 pt-32 md:pt-40 pb-52 md:pb-20 flex flex-wrap md:flex-nowrap items-center gap-12 md:gap-5 justify-between">
+    <section className="flex h-36 flex-wrap items-center justify-between gap-12 pb-52 pt-32 md:flex-nowrap md:gap-5 md:pb-20 md:pt-40">
       <TextInput.Root>
         <TextInput.Icon>
           <MagnifyingGlass weight="bold" />
@@ -18,6 +19,11 @@ const FiltersBar = ({ countriesFilter, filterRegions }) => {
       <FilterSelect filterRegions={filterRegions} />
     </section>
   )
+}
+
+FiltersBar.propTypes = {
+  countriesFilter: PropTypes.func,
+  filterRegions: PropTypes.func,
 }
 
 export default FiltersBar

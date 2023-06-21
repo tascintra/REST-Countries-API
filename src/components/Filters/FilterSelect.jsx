@@ -1,27 +1,28 @@
-import { useContext, useState } from 'react'
-import { ThemeContext } from '@/ThemeContext'
-import Select from 'react-select'
+import { useContext } from "react"
+import { ThemeContext } from "@/ThemeContext"
+import PropTypes from "prop-types"
+import Select from "react-select"
 
 const options = [
   {
-    value: 'africa',
-    label: 'Africa',
+    value: "africa",
+    label: "Africa",
   },
   {
-    value: 'america',
-    label: 'America',
+    value: "america",
+    label: "America",
   },
   {
-    value: 'asia',
-    label: 'Asia',
+    value: "asia",
+    label: "Asia",
   },
   {
-    value: 'europe',
-    label: 'Europe',
+    value: "europe",
+    label: "Europe",
   },
   {
-    value: 'oceania',
-    label: 'Oceania',
+    value: "oceania",
+    label: "Oceania",
   },
 ]
 
@@ -29,53 +30,53 @@ const FilterSelect = ({ filterRegions }) => {
   const { darkTheme } = useContext(ThemeContext)
 
   const lightPrim = getComputedStyle(document.documentElement).getPropertyValue(
-    '--gray-200'
+    "--gray-200"
   )
-  const lightSec = '#f2f2f2'
-  const lightTer = '#858585'
+  const lightSec = "#f2f2f2"
+  const lightTer = "#858585"
 
   const darkPrim = getComputedStyle(document.documentElement).getPropertyValue(
-    '--blue-100'
+    "--blue-100"
   )
-  const darkSec = '#2b3945'
-  const darkTer = '#4a5864'
+  const darkSec = "#2b3945"
+  const darkTer = "#4a5864"
 
   const shadowComponents = getComputedStyle(
     document.documentElement
-  ).getPropertyValue('--shadow-components')
+  ).getPropertyValue("--shadow-components")
   const shadowSelected = getComputedStyle(
     document.documentElement
-  ).getPropertyValue('--shadow-selected')
+  ).getPropertyValue("--shadow-selected")
   const shadowDarkSelected = getComputedStyle(
     document.documentElement
-  ).getPropertyValue('--shadow-dark-selected')
+  ).getPropertyValue("--shadow-dark-selected")
 
   const style = {
     control: (base, state) => ({
       ...base,
-      fontSize: '0.875rem',
-      border: state.isFocused ? 'none' : 'none',
+      fontSize: "0.875rem",
+      border: state.isFocused ? "none" : "none",
       boxShadow: state.isFocused
         ? darkTheme
           ? `${shadowDarkSelected}`
           : `${shadowSelected}`
         : `${shadowComponents}`,
-      padding: '10px 6px 10px 14px',
-      borderRadius: '6px',
-      transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
-      backgroundColor: darkTheme ? `${darkSec}` : '#fff',
-      '&:hover': {
+      padding: "10px 6px 10px 14px",
+      borderRadius: "6px",
+      transition: "all 300ms cubic-bezier(0.4, 0, 0.2, 1)",
+      backgroundColor: darkTheme ? `${darkSec}` : "#fff",
+      "&:hover": {
         boxShadow: darkTheme ? `${shadowDarkSelected}` : `${shadowSelected}`,
       },
     }),
     clearIndicator: (base, state) => ({
       ...base,
-      color: darkTheme && (state.isSelected ? '#fff' : '#fff'),
-      '&:hover': {
+      color: darkTheme && (state.isSelected ? "#fff" : "#fff"),
+      "&:hover": {
         color: darkTheme
           ? state.isSelected
-            ? '#8799a8'
-            : '#8799a8'
+            ? "#8799a8"
+            : "#8799a8"
           : `${lightTer}`,
       },
     }),
@@ -86,18 +87,17 @@ const FilterSelect = ({ filterRegions }) => {
     dropdownIndicator: (styles) => ({
       ...styles,
       color: darkTheme ? `${lightPrim}` : `${darkPrim}`,
-      '&:hover': {
+      "&:hover": {
         color: darkTheme ? `${lightPrim}` : `${darkPrim}`,
       },
     }),
     menu: (styles) => {
       return {
         ...styles,
-        backgroundColor: darkTheme ? `${darkSec}` : '#fff',
-        boxShadow: `${shadowComponents}`,
-        border: 'none',
-        borderRadius: '6px',
-        top: '52px',
+        backgroundColor: darkTheme ? `${darkSec}` : "#fff",
+        border: "none",
+        borderRadius: "6px",
+        top: "52px",
         color: darkTheme ? `${lightPrim}` : `${darkPrim}`,
         boxShadow: darkTheme ? `${shadowDarkSelected}` : `${shadowSelected}`,
       }
@@ -109,13 +109,13 @@ const FilterSelect = ({ filterRegions }) => {
           ? undefined
           : isSelected
           ? darkTheme
-            ? '#1b272d'
+            ? "#1b272d"
             : `${lightTer}`
           : isFocused
           ? undefined
           : undefined,
 
-        '&:hover': {
+        "&:hover": {
           backgroundColor: isDisabled
             ? undefined
             : isSelected
@@ -129,8 +129,8 @@ const FilterSelect = ({ filterRegions }) => {
             : undefined,
         },
 
-        '&:hover:active': {
-          ...styles[':active'],
+        "&:hover:active": {
+          ...styles[":active"],
           backgroundColor: !isDisabled
             ? isSelected
               ? darkTheme
@@ -138,11 +138,11 @@ const FilterSelect = ({ filterRegions }) => {
                 : `${lightSec}`
               : darkTheme
               ? `${darkPrim}`
-              : '#525252'
+              : "#525252"
             : undefined,
-          color: darkTheme ? '#fff' : `${lightSec}`,
+          color: darkTheme ? "#fff" : `${lightSec}`,
         },
-        paddingLeft: '24px',
+        paddingLeft: "24px",
       }
     },
     singleValue: (styles) => {
@@ -169,6 +169,10 @@ const FilterSelect = ({ filterRegions }) => {
       />
     </div>
   )
+}
+
+FilterSelect.propTypes = {
+  filterRegions: PropTypes.func,
 }
 
 export default FilterSelect

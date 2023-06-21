@@ -1,6 +1,6 @@
-import { useCallback, useState } from 'react'
-import axios from 'axios'
-import { API_URL } from '@/services/api'
+import { useCallback, useState } from "react"
+import axios from "axios"
+import { API_URL } from "@/services/api"
 
 axios.defaults.baseURL = API_URL
 

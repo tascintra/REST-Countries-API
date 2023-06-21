@@ -1,20 +1,19 @@
-import { useEffect, useState } from 'react'
-import CountryCard from '@/components/Countries/CountryCard'
-import CardSkeleton from '@/components/Helper/CardSkeleton'
-import Error from '@/components/Helper/Error'
+import { useEffect, useState } from "react"
+import PropTypes from "prop-types"
+import CountryCard from "@/components/Countries/CountryCard"
+import CardSkeleton from "@/components/Helper/CardSkeleton"
+import Error from "@/components/Helper/Error"
 
 const CountriesContainer = ({ data, loading, error, skeleton, countries }) => {
   const [brokenList, setBrokenList] = useState(0)
 
   useEffect(() => {
-    countries.length % 4 === 2
-      ? setBrokenList(2)
-      : setBrokenList(3)
+    countries.length % 4 === 2 ? setBrokenList(2) : setBrokenList(3)
   }, [countries])
 
   return (
     <section
-      className={`flex flex-wrap justify-center md:justify-between gap-12 lg:gap-y-16`}
+      className={`flex flex-wrap justify-center gap-12 md:justify-between lg:gap-y-16`}
     >
       {error && <Error error={error.response.data.message} />}
       {loading && skeleton.map((item) => <CardSkeleton key={item} />)}
@@ -39,6 +38,14 @@ const CountriesContainer = ({ data, loading, error, skeleton, countries }) => {
       {brokenList === 3 && <CountryCard empty={true} />}
     </section>
   )
+}
+
+CountriesContainer.propTypes = {
+  data: PropTypes.array,
+  loading: PropTypes.bool,
+  error: PropTypes.object,
+  skeleton: PropTypes.array,
+  countries: PropTypes.array,
 }
 
 export default CountriesContainer
