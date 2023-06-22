@@ -3,31 +3,15 @@ import { ThemeContext } from "@/ThemeContext"
 import PropTypes from "prop-types"
 import Select from "react-select"
 
-const options = [
-  {
-    value: "africa",
-    label: "Africa",
-  },
-  {
-    value: "america",
-    label: "America",
-  },
-  {
-    value: "asia",
-    label: "Asia",
-  },
-  {
-    value: "europe",
-    label: "Europe",
-  },
-  {
-    value: "oceania",
-    label: "Oceania",
-  },
-]
-
-const FilterSelect = ({ filterRegions }) => {
+const FilterSelect = ({ filter, filterItems }) => {
   const { darkTheme } = useContext(ThemeContext)
+
+  const options = filterItems.map((item) => {
+    return {
+      value: item.toLowerCase(),
+      label: item,
+    }
+  })
 
   const lightPrim = getComputedStyle(document.documentElement).getPropertyValue(
     "--gray-200"
@@ -72,6 +56,7 @@ const FilterSelect = ({ filterRegions }) => {
     clearIndicator: (base, state) => ({
       ...base,
       color: darkTheme && (state.isSelected ? "#fff" : "#fff"),
+      cursor: "pointer",
       "&:hover": {
         color: darkTheme
           ? state.isSelected
@@ -105,6 +90,7 @@ const FilterSelect = ({ filterRegions }) => {
     option: (styles, { isDisabled, isFocused, isSelected }) => {
       return {
         ...styles,
+        fontSize: "0.875rem",
         backgroundColor: isDisabled
           ? undefined
           : isSelected
@@ -159,20 +145,24 @@ const FilterSelect = ({ filterRegions }) => {
         instanceId="regions"
         placeholder="Filter by Region"
         options={options}
+        defaultValue={" "}
         styles={style}
         components={{
           IndicatorSeparator: () => null,
         }}
         isSearchable={false}
         isClearable
-        onChange={(e) => filterRegions(e?.value)}
+        onChange={(e) => {
+          filter(e?.value)
+        }}
       />
     </div>
   )
 }
 
 FilterSelect.propTypes = {
-  filterRegions: PropTypes.func,
+  filter: PropTypes.func,
+  filterItems: PropTypes.array,
 }
 
 export default FilterSelect

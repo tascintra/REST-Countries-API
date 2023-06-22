@@ -3,7 +3,7 @@ import { MagnifyingGlass } from "@phosphor-icons/react"
 import FilterSelect from "@/components/Filters/FilterSelect"
 import { TextInput } from "@/components/Filters/TextInput"
 
-const FiltersBar = ({ filterRegions, query }) => {
+const FiltersBar = ({ query, filter, filterItems }) => {
   return (
     <section className="flex h-36 flex-wrap items-center justify-between gap-12 pb-52 pt-32 md:flex-nowrap md:gap-5 md:pb-20 md:pt-40">
       <TextInput.Root>
@@ -16,7 +16,10 @@ const FiltersBar = ({ filterRegions, query }) => {
           placeholder="Search for a country..."
         />
       </TextInput.Root>
-      <FilterSelect filterRegions={filterRegions} />
+      <FilterSelect
+        filter={filter}
+        filterItems={filterItems}
+      />
     </section>
   )
 }
@@ -24,6 +27,8 @@ const FiltersBar = ({ filterRegions, query }) => {
 FiltersBar.propTypes = {
   filterRegions: PropTypes.func,
   query: PropTypes.func,
+  filter: PropTypes.func,
+  filterItems: PropTypes.array,
 }
 
 export default FiltersBar
