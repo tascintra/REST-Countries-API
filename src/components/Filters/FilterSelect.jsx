@@ -47,7 +47,6 @@ const FilterSelect = ({ filter, filterItems }) => {
         : `${shadowComponents}`,
       padding: "10px 6px 10px 14px",
       borderRadius: "6px",
-      transition: "all 300ms cubic-bezier(0.4, 0, 0.2, 1)",
       backgroundColor: darkTheme ? `${darkSec}` : "#fff",
       "&:hover": {
         boxShadow: darkTheme ? `${shadowDarkSelected}` : `${shadowSelected}`,

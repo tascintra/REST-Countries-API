@@ -3,7 +3,7 @@ import { Slot } from "@radix-ui/react-slot"
 
 function TextInputRoot(props) {
   return (
-    <span className="flex h-14 w-full max-w-smd items-center gap-5 rounded bg-white px-7 py-4 shadow-components transition-all duration-300 focus-within:shadow-selected hover:shadow-selected dark:bg-blue-300 dark:focus-within:shadow-darkSelected dark:hover:shadow-darkSelected">
+    <span className="flex h-14 w-full max-w-smd items-center gap-5 rounded bg-white px-7 py-4 shadow-components focus-within:shadow-selected hover:shadow-selected dark:bg-blue-300 dark:focus-within:shadow-darkSelected dark:hover:shadow-darkSelected">
       {props.children}
     </span>
   )

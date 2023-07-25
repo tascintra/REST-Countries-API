@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <header
-      className={`shadow-bar dark:shadow-darkBar ${classname} fixed z-50 w-full text-blue-100 backdrop-blur-md transition-all duration-300 dark:text-white`}
+      className={`shadow-bar dark:shadow-darkBar ${classname} fixed z-50 w-full text-blue-100 backdrop-blur-md dark:text-white`}
     >
       <div className="m-auto flex h-24 max-w-8xl items-center justify-between px-5 sm:h-20 md:px-16">
         <Link reloadDocument to="/" className="text-base font-bold sm:text-2xl">
